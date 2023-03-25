@@ -1,13 +1,12 @@
-import os
 from typing import Iterator
 
-from azure.storage.blob import BlobServiceClient
 from requests.utils import requote_uri
 from scrapy import signals
 from scrapy.http.response.html import HtmlResponse
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
+from scrapers.azure_helpers import append_file_to_blob
 from scrapers.items import PropertyItem
 
 
@@ -82,16 +81,6 @@ class GallitoSpider(CrawlSpider):
         return spider
 
     def spider_closed(self, spider):
-        # TODO: extract to azure_helpers module or similar
         spider.logger.info("Spider closed: %s", spider.name)
-        connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
-        blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-        container_name = os.getenv("AZURE_CONTAINER_NAME")
         for uri, _ in self.settings.getdict("FEEDS").items():
-            container_client = blob_service_client.get_container_client(
-                container=container_name
-            )
-            with open(uri, mode="rb") as data:
-                container_client.upload_blob(
-                    name=uri, data=data, blob_type="AppendBlob"
-                )
+            append_file_to_blob(uri)
