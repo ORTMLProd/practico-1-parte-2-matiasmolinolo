@@ -1,2 +1,4 @@
 scrapy
-pandas
+azure-storage-blob
+azure-identity
+Pillow
