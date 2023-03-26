@@ -20,10 +20,13 @@ class GallitoSpider(CrawlSpider):
         "FEEDS": {
             "properties_gallito.jl": {"format": "jsonlines"},
         },
+        "max_items_per_label": 15,
+        "label_field": "property_type",
+        "CLOSESPIDER_ITEMCOUNT": 30,
     }
     start_urls = [
-        "https://www.gallito.com.uy/inmuebles/casas!cant=80",
-        "https://www.gallito.com.uy/inmuebles/apartamentos!cant=80",
+        "https://www.gallito.com.uy/inmuebles/casas",  # !cant=80
+        "https://www.gallito.com.uy/inmuebles/apartamentos",  # !cant=80
     ]
 
     rules = (
@@ -31,8 +34,8 @@ class GallitoSpider(CrawlSpider):
             LinkExtractor(
                 allow=(
                     [
-                        r"\/inmuebles\/casas!cant=80\?pag=\d+",
-                        r"\/inmuebles\/apartamentos!cant=80\?pag=\d+",
+                        r"\/inmuebles\/casas\?pag=\d+",  # !cant=80\?pag=\d+
+                        r"\/inmuebles\/apartamentos\?pag=\d+",  # !cant=80\?pag=\d+
                     ]
                 )
             )

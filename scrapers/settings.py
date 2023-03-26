@@ -64,8 +64,8 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "scrapers.pipelines.DuplicatesPipeline": 100,
+    "scrapers.pipelines.ItemLimit": 120,
     "scrapers.pipelines.AzureImagesPipeline": 150,
-    # "scrapy.pipelines.images.ImagesPipeline": 150,
 }
 
 IMAGES_STORE = "/Users/federicozaiter/Repos/ort/ml-in-prod/scrapers/scrapers/images"
