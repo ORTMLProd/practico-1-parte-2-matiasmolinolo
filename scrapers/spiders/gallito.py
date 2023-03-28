@@ -56,7 +56,6 @@ class GallitoSpider(CrawlSpider):
         property_id = get_with_css("#HfCodigoAviso::attr('value')")
         img_urls = get_with_css("#HstrImg::attr('value')")
         img_urls = [img for img in img_urls.split(",") if img]
-        front_img = get_with_css("#HprimeraImagen::attr('value')")
         possible_types = {
             "casa": "HOUSE",
             "apartamento": "APARTMENT",
@@ -68,7 +67,6 @@ class GallitoSpider(CrawlSpider):
 
         property = {
             "id": property_id,
-            "front_img": front_img,
             "image_urls": img_urls,
             "source": "gallito",
             "url": requote_uri(response.request.url),
