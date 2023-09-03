@@ -26,14 +26,5 @@ Llegado este práctico ya van a estar familiarizados con [git](https://git-scm.c
 
 Llegado este práctico ya van a estar familiarizados con el [Dockerfile](https://docs.docker.com/engine/reference/builder/), y los comandos docker [build](https://docs.docker.com/engine/reference/commandline/build/), [run](https://docs.docker.com/engine/reference/commandline/run/) y [push](https://docs.docker.com/engine/reference/commandline/push/). 
 
-## Azure
-
-Todos debemos crearnos una cuenta en Azure usando nuestro email `<usuario@fi365.ort.edu.uy>` para poder obtener los beneficios de la cuenta educacional. 
-
-Para trabajar con Azure vamos a necesitar instalar la [CLI de Azure](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) y habernos logueado corriendo `az login`.
-
-En Azure vamos a ver cómo usar el [Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs) para almacenar las imágenes que extrae nuestro scraper. 
-
-También vamos a ver cómo usar el [Container Registry](https://azure.microsoft.com/en-us/products/container-registry) para registrar la imagen que buildeamos. 
-
-Por último usaremos [Container Instances](https://azure.microsoft.com/en-us/products/container-instances) para correr nuestra spider en la nube.
+## AWS Academy
+...
