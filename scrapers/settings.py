@@ -64,11 +64,11 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "scrapers.pipelines.DuplicatesPipeline": 100,
-    "scrapers.pipelines.ItemLimit": 120,
-    "scrapers.pipelines.AzureImagesPipeline": 150,
+    # "scrapy.pipelines.images.ImagesPipeline": 120
 }
 
-IMAGES_STORE = "/Users/federicozaiter/Repos/ort/ml-in-prod/scrapers/scrapers/images"
+# IMAGES_STORE = "s3://mlprod-scrapers/gallito/"
+# IMAGES_STORE = "<local_path>"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -83,4 +83,4 @@ AUTOTHROTTLE_MAX_DELAY = 3
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-LOG_FILE = "./scrapy_logs.log"
+# LOG_FILE = "./scrapy_logs.log"
