@@ -6,7 +6,6 @@ from scrapy.http.response.html import HtmlResponse
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
-from scrapers.azure_helpers import append_file_to_blob
 from scrapers.items import PropertyItem
 
 
@@ -20,8 +19,6 @@ class GallitoSpider(CrawlSpider):
         "FEEDS": {
             "properties_gallito.jl": {"format": "jsonlines"},
         },
-        "max_items_per_label": 15,
-        "label_field": "property_type",
         "CLOSESPIDER_ITEMCOUNT": 30,
     }
     start_urls = [
@@ -74,14 +71,3 @@ class GallitoSpider(CrawlSpider):
             "property_type": property_type,
         }
         yield PropertyItem(**property)
-
-    @classmethod
-    def from_crawler(cls, crawler, *args, **kwargs):
-        spider = super(GallitoSpider, cls).from_crawler(crawler, *args, **kwargs)
-        crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
-        return spider
-
-    def spider_closed(self, spider):
-        spider.logger.info("Spider closed: %s", spider.name)
-        for uri, _ in self.settings.getdict("FEEDS").items():
-            append_file_to_blob(uri)
