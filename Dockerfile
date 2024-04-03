@@ -22,4 +22,7 @@ COPY . .
 
 # ejecuta bash para usar la línea de comandos
 CMD ["bash"]
-#CMD scrapy crawl gallito
+
+# docker build -t scrapy .
+# docker run -it scrapy bash 
+# scrapy crawl gallito
