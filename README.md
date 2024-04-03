@@ -1,4 +1,4 @@
-# Práctico 2
+# Práctico 1 - Parte 2
 
 En esta parte del práctico vamos a retomar los temas ya vistos en clase para construir un web scraper que extrae imágenes de propiedades del [Gallito](gallito.com.uy/).
 
