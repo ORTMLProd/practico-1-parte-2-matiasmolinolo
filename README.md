@@ -2,7 +2,7 @@
 
 En esta parte del práctico vamos a retomar los temas ya vistos en clase para construir un web scraper que extrae imágenes de propiedades del [Gallito](gallito.com.uy/).
 
-Vamos a entrar en mayor profundidad en dependencias de python, web scraping, docker, y azure.
+Vamos a entrar en mayor profundidad en dependencias de python, web scraping, docker, y AWS.
 
 ## Manejo de dependencias en Python
 Usamos [`pip-tools`](https://pip-tools.readthedocs.io/en/latest/) para manejar las dependencias de Python. 
