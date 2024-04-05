@@ -39,7 +39,7 @@ class GallitoSpider(CrawlSpider):
         Rule(LinkExtractor(allow=(r"-\d{8}$")), callback="parse_property"),
     )
 
-    def parse_property(self, response: HtmlResponse) -> Iterator[dict]:
+    def parse_property(self, response: HtmlResponse) -> Iterator[PropertyItem]:
         def get_with_css(query: str) -> str:
             return response.css(query).get(default="").strip()
 
@@ -63,8 +63,8 @@ class GallitoSpider(CrawlSpider):
             "id": property_id,
             "image_urls": img_urls,
             "source": "gallito",
-            "url": requote_uri(response.request.url),
-            "link": requote_uri(response.request.url),
+            "url": requote_uri(response.request.url if response.request else ""),
+            "link": requote_uri(response.request.url if response.request else ""),
             "property_type": property_type,
         }
         yield PropertyItem(**property)
