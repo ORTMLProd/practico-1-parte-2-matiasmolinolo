@@ -1,7 +1,6 @@
 from typing import Iterator
 
 from requests.utils import requote_uri
-from scrapy import signals
 from scrapy.http.response.html import HtmlResponse
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
@@ -45,9 +44,7 @@ class GallitoSpider(CrawlSpider):
             return response.css(query).get(default="").strip()
 
         def extract_with_css(query: str) -> list[str]:
-            return [
-                line for elem in response.css(query).extract() if (line := elem.strip())
-            ]
+            return [line for elem in response.css(query).extract() if (line := elem.strip())]
 
         # property details
         property_id = get_with_css("#HfCodigoAviso::attr('value')")

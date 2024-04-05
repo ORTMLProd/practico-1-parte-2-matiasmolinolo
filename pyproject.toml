@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "practico-1-parte-2-matiasmolinolo"
+version = "0.1.0"
+description = ""
+authors = ["Matias Molinolo <mm231323@fi365.ort.edu.uy>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9.6"
+pillow = ">=7.1.0"
+botocore = ">=1.4.87"
+scrapy = "^2.11.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.5"
+ipython = "^8.18.1"
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+exclude = [
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".tox",
+  ".venv",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+]
+
+[tool.pyright]
+venvPath = "/Users/matiasmolinolo/Library/Caches/pypoetry/virtualenvs/"
+venv="practico-1-parte-2-matiasmolinolo-TL0syxeC-py3.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

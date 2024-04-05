@@ -1,11 +1,9 @@
 import logging
 from collections import defaultdict
 
-from itemadapter import ItemAdapter
+from itemadapter.adapter import ItemAdapter
 from scrapy.exceptions import DropItem
-from scrapy.pipelines.images import ImagesPipeline
 from scrapy.spiders import Spider
-from scrapy.utils.misc import md5sum
 
 
 class DuplicatesPipeline:
