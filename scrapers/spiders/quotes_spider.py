@@ -20,7 +20,7 @@ class QuotesSpider(scrapy.Spider):
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
-    def parse(self, response):
+    def parse(self, response):  # pyright: ignore
         quotes = response.css(".quote")
         for quote in quotes:
             text = quote.css(".text::text").get()

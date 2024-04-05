@@ -39,10 +39,11 @@ class ItemLimit:
         try:
             max_items_per_label = crawler.settings["max_items_per_label"]
             label_field = crawler.settings["label_field"]
+
+            return cls(max_items_per_label, label_field)
         except KeyError as exc:
             logging.error(
                 "max_items_per_label or label_field settings not found in the crawler"
                 "settings. You need to set them for the ItemLimit pipeline to work.\n"
                 f"{exc}"
             )
-        return cls(max_items_per_label, label_field)
